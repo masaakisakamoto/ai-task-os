@@ -1,0 +1,22 @@
+{
+  "id": "014-autofix-execution-loop",
+  "goal": "Prepare a repeatable execution loop that feeds an autofix prompt to Claude and guides review and rerun.",
+  "scope": [
+    "check that /tmp/autofix-prompt.txt exists",
+    "provide a standard execution handoff for Claude Code",
+    "provide standard post-fix review and rerun commands"
+  ],
+  "non_scope": [
+    "no automatic Claude execution yet",
+    "no automatic commit",
+    "no automatic merge",
+    "no external API"
+  ],
+  "checks": [
+    {
+      "type": "command",
+      "run": "bash scripts/run-autofix-loop.sh",
+      "expect": "exit_code_0"
+    }
+  ]
+}
