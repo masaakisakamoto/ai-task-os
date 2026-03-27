@@ -51,14 +51,23 @@ function buildRun(task) {
 
 function printHelp() {
   console.log(`
-AI Task OS CLI
+AI Task OS CLI — Execution OS for AI builders
+
+Commands:
+  run <task.json>   Execute a task file and write artifacts/run.json
 
 Usage:
   node cli/index.js run <task.json>
   ai-task run <task.json>
 
+Arguments:
+  task.json         Path to a task file with required keys: id, type, objective, input
+
 Example:
   node cli/index.js run examples/pr-review.json
+
+Options:
+  --help, -h        Show this help message
 `);
 }
 
