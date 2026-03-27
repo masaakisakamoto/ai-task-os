@@ -1,0 +1,25 @@
+{
+  "id": "015-run-comparison",
+  "goal": "Compare two run artifacts and determine whether the system improved.",
+  "scope": [
+    "read two run artifacts",
+    "compare eval.ratio",
+    "produce a comparison report with verdict"
+  ],
+  "non_scope": [
+    "no automatic execution",
+    "no external API",
+    "no memory engine"
+  ],
+  "checks": [
+    {
+      "type": "command",
+      "run": "node scripts/compare-runs.js artifacts/007-run-artifact-json-checks-run.json artifacts/007-run-artifact-json-checks-run.json /tmp/compare-report.json",
+      "expect": "exit_code_0"
+    },
+    {
+      "type": "file_exists",
+      "path": "/tmp/compare-report.json"
+    }
+  ]
+}
