@@ -40,8 +40,11 @@ function main() {
     reason = 'After run performed worse than before run.';
   }
 
+  const sourceRunPath = report.after?.path || null;
+
   const decision = {
     source_verdict: verdict,
+    source_run_path: sourceRunPath,
     before: report.before || null,
     after: report.after || null,
     delta: report.delta || null,

@@ -1,0 +1,26 @@
+{
+  "id": "018-source-run-plumbing",
+  "goal": "Pass source run path through decision and use it in retry loop.",
+  "scope": [
+    "include source_run_path in decision artifact",
+    "use source_run_path in trigger-next-step",
+    "remove hardcoded run reference"
+  ],
+  "non_scope": [
+    "no automation",
+    "no external API",
+    "no memory engine"
+  ],
+  "checks": [
+    {
+      "type": "command",
+      "run": "node scripts/decide-from-comparison.js /tmp/compare-report.json /tmp/comparison-decision.json",
+      "expect": "exit_code_0"
+    },
+    {
+      "type": "command",
+      "run": "node scripts/trigger-next-step.js /tmp/comparison-decision.json",
+      "expect": "exit_code_0"
+    }
+  ]
+}

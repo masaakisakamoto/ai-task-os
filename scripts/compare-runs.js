@@ -43,12 +43,14 @@ function main() {
 
   const report = {
     before: {
+      path: beforePath, // ← ★追加
       run_id: before.run_id || null,
       ratio: b.ratio,
       score: b.score,
       max_score: b.max_score
     },
     after: {
+      path: afterPath, // ← ★追加
       run_id: after.run_id || null,
       ratio: a.ratio,
       score: a.score,

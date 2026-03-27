@@ -3,8 +3,8 @@
 const fs = require('fs');
 const { execSync } = require('child_process');
 
-function readJson(p) {
-  return JSON.parse(fs.readFileSync(p, 'utf8'));
+function readJson(filePath) {
+  return JSON.parse(fs.readFileSync(filePath, 'utf8'));
 }
 
 function main() {
@@ -22,15 +22,21 @@ function main() {
 
   const decision = readJson(decisionFile);
   const action = decision.next_action?.action;
+  const sourceRunPath = decision.source_run_path;
 
   console.log(`Detected action: ${action}`);
 
   if (action === 'retry_improvement') {
     console.log('→ Triggering new improvement task generation');
 
+    if (!sourceRunPath || !fs.existsSync(sourceRunPath)) {
+      console.error(`Invalid source_run_path: ${sourceRunPath}`);
+      process.exit(1);
+    }
+
     try {
       execSync(
-        'node scripts/generate-improvement-task.js artifacts/tmp-fail-test-run.json /tmp/generated-improvement-task.json',
+        `node scripts/generate-improvement-task.js ${JSON.stringify(sourceRunPath)} /tmp/generated-improvement-task.json`,
         { stdio: 'inherit' }
       );
     } catch (e) {
