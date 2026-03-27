@@ -119,6 +119,16 @@ function main() {
     run_id: `run-${Date.now()}`,
     task_id: task.id,
     timestamp: new Date().toISOString(),
+    task_snapshot: task,
+    output: {
+      result: summary.all_passed ? 'pass' : 'fail',
+      summary: `${summary.passed}/${summary.total} checks passed`
+    },
+    trace: [
+      'Loaded task JSON',
+      'Ran checks',
+      `Result: ${summary.passed}/${summary.total} passed`
+    ],
     verify_summary: summary,
     verify_results: results,
     status: summary.all_passed ? 'success' : 'failed'

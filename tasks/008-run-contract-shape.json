@@ -1,0 +1,30 @@
+{
+  "id": "008-run-contract-shape",
+  "goal": "Restore and standardize the run artifact shape for future eval and memory integration.",
+  "scope": [
+    "ensure run artifacts include task_snapshot",
+    "ensure run artifacts include output.result and output.summary",
+    "ensure run artifacts include trace",
+    "preserve verify_summary and verify_results",
+    "preserve support for command, file_exists, and json_path_equals checks"
+  ],
+  "non_scope": [
+    "no UI",
+    "no memory engine",
+    "no hosted features",
+    "no dependency changes"
+  ],
+  "checks": [
+    {
+      "type": "command",
+      "run": "node cli/index.js run tasks/007-run-artifact-json-checks.json",
+      "expect": "exit_code_0"
+    },
+    {
+      "type": "json_path_equals",
+      "file": "artifacts/007-run-artifact-json-checks-run.json",
+      "path": "status",
+      "equals": "success"
+    }
+  ]
+}
