@@ -113,6 +113,19 @@ function buildEval(summary) {
   };
 }
 
+function buildNextAction(evalResult) {
+  if (evalResult.ratio < 1) {
+    return {
+      action: 'suggest_improvement',
+      reason: `${evalResult.score}/${evalResult.max_score} checks passed — review failed checks`
+    };
+  }
+  return {
+    action: 'mark_success',
+    reason: `All ${evalResult.max_score} checks passed`
+  };
+}
+
 function main() {
   const [, , command, file] = process.argv;
 
@@ -124,6 +137,7 @@ function main() {
   const task = readJson(file);
   const results = runChecks(task.checks || []);
   const summary = buildSummary(results);
+  const evalResult = buildEval(summary);
 
   const run = {
     run_id: `run-${Date.now()}`,
@@ -139,7 +153,8 @@ function main() {
       'Ran checks',
       `Result: ${summary.passed}/${summary.total} passed`
     ],
-    eval: buildEval(summary),
+    eval: evalResult,
+    next_action: buildNextAction(evalResult),
     verify_summary: summary,
     verify_results: results,
     status: summary.all_passed ? 'success' : 'failed'

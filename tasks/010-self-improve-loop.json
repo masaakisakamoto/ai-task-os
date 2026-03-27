@@ -1,0 +1,21 @@
+{
+  "id": "010-self-improve-loop",
+  "goal": "Use eval score to decide next action for the system.",
+  "scope": [
+    "read eval.score and eval.ratio",
+    "if ratio < 1, suggest improvement",
+    "if ratio = 1, mark as successful run"
+  ],
+  "non_scope": [
+    "no full automation yet",
+    "no memory engine yet",
+    "no external API"
+  ],
+  "checks": [
+    {
+      "type": "command",
+      "run": "node cli/index.js run tasks/007-run-artifact-json-checks.json",
+      "expect": "exit_code_0"
+    }
+  ]
+}
