@@ -1,0 +1,19 @@
+{
+  "id": "006-run-artifact-checks",
+  "goal": "Verify that running a task produces a run artifact and that the artifact exists.",
+  "scope": [
+    "run a valid task through the CLI",
+    "verify that the expected artifact file exists"
+  ],
+  "checks": [
+    {
+      "type": "command",
+      "run": "node cli/index.js run tasks/003-help-command.json",
+      "expect": "exit_code_0"
+    },
+    {
+      "type": "file_exists",
+      "path": "artifacts/003-help-command-run.json"
+    }
+  ]
+}

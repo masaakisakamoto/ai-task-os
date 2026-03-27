@@ -1,0 +1,27 @@
+{
+  "id": "007-run-artifact-json-checks",
+  "goal": "Verify that run artifact contains expected values.",
+  "scope": [
+    "run a task",
+    "verify artifact JSON structure and values"
+  ],
+  "checks": [
+    {
+      "type": "command",
+      "run": "node cli/index.js run tasks/003-help-command.json",
+      "expect": "exit_code_0"
+    },
+    {
+      "type": "json_path_equals",
+      "file": "artifacts/003-help-command-run.json",
+      "path": "status",
+      "equals": "success"
+    },
+    {
+      "type": "json_path_equals",
+      "file": "artifacts/003-help-command-run.json",
+      "path": "verify_summary.all_passed",
+      "equals": true
+    }
+  ]
+}
