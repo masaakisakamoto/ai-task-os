@@ -1,0 +1,26 @@
+{
+  "id": "016-comparison-decision",
+  "goal": "Turn a comparison report into a machine-readable next action.",
+  "scope": [
+    "read a comparison report",
+    "map improved/same/worse into a next action",
+    "write a decision artifact"
+  ],
+  "non_scope": [
+    "no automatic rollback",
+    "no automatic retry",
+    "no automatic execution",
+    "no external API"
+  ],
+  "checks": [
+    {
+      "type": "command",
+      "run": "node scripts/decide-from-comparison.js /tmp/compare-report.json /tmp/comparison-decision.json",
+      "expect": "exit_code_0"
+    },
+    {
+      "type": "file_exists",
+      "path": "/tmp/comparison-decision.json"
+    }
+  ]
+}
