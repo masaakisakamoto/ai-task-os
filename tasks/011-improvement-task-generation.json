@@ -1,0 +1,26 @@
+{
+  "id": "011-improvement-task-generation",
+  "goal": "Generate a follow-up improvement task draft from a failed run artifact.",
+  "scope": [
+    "read a failed run artifact",
+    "extract failed verification results",
+    "produce a machine-readable improvement task draft"
+  ],
+  "non_scope": [
+    "no automatic code changes",
+    "no automatic task execution",
+    "no memory engine",
+    "no external API"
+  ],
+  "checks": [
+    {
+      "type": "command",
+      "run": "node scripts/generate-improvement-task.js artifacts/tmp-fail-test-run.json /tmp/generated-improvement-task.json",
+      "expect": "exit_code_0"
+    },
+    {
+      "type": "file_exists",
+      "path": "/tmp/generated-improvement-task.json"
+    }
+  ]
+}
