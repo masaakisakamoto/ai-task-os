@@ -1,0 +1,25 @@
+{
+  "id": "013-autofix-prompt-build",
+  "goal": "Build a Claude-compatible prompt from an autofix task.",
+  "scope": [
+    "read autofix-task.json",
+    "generate a Claude execution prompt",
+    "output to /tmp/autofix-prompt.txt"
+  ],
+  "non_scope": [
+    "no code execution",
+    "no auto-fix yet",
+    "no external API"
+  ],
+  "checks": [
+    {
+      "type": "command",
+      "run": "bash scripts/build-autofix-prompt.sh /tmp/autofix-task.json /tmp/autofix-prompt.txt",
+      "expect": "exit_code_0"
+    },
+    {
+      "type": "file_exists",
+      "path": "/tmp/autofix-prompt.txt"
+    }
+  ]
+}
