@@ -1,0 +1,30 @@
+{
+  "id": "009-eval-score-shape",
+  "goal": "Standardize eval score fields in run artifacts based on verification results.",
+  "scope": [
+    "add eval.score to run artifact",
+    "add eval.max_score to run artifact",
+    "add eval.ratio to run artifact",
+    "add eval.label to run artifact",
+    "preserve existing run contract fields"
+  ],
+  "non_scope": [
+    "no UI",
+    "no memory engine",
+    "no dependency changes",
+    "no weighted scoring yet"
+  ],
+  "checks": [
+    {
+      "type": "command",
+      "run": "node cli/index.js run tasks/007-run-artifact-json-checks.json",
+      "expect": "exit_code_0"
+    },
+    {
+      "type": "json_path_equals",
+      "file": "artifacts/007-run-artifact-json-checks-run.json",
+      "path": "status",
+      "equals": "success"
+    }
+  ]
+}

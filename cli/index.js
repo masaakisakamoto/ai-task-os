@@ -103,6 +103,16 @@ function buildSummary(results) {
   };
 }
 
+function buildEval(summary) {
+  const ratio = summary.total === 0 ? 1.0 : summary.passed / summary.total;
+  return {
+    score: summary.passed,
+    max_score: summary.total,
+    ratio,
+    label: summary.all_passed ? 'pass' : 'fail'
+  };
+}
+
 function main() {
   const [, , command, file] = process.argv;
 
@@ -129,6 +139,7 @@ function main() {
       'Ran checks',
       `Result: ${summary.passed}/${summary.total} passed`
     ],
+    eval: buildEval(summary),
     verify_summary: summary,
     verify_results: results,
     status: summary.all_passed ? 'success' : 'failed'
