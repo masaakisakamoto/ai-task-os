@@ -1,0 +1,31 @@
+{
+  "id": "004-run-smoke",
+  "goal": "Verify that the CLI run command can execute a valid task and generate a run artifact.",
+  "scope": [
+    "validate that node cli/index.js run <task.json> works",
+    "validate that a run artifact is generated"
+  ],
+  "non_scope": [
+    "no CLI redesign",
+    "no schema redesign",
+    "no dependency changes"
+  ],
+  "success_criteria": [
+    "node cli/index.js run tasks/003-help-command.json succeeds",
+    "artifacts/003-help-command-run.json exists"
+  ],
+  "relevant_files": [
+    "cli/index.js",
+    "tasks/003-help-command.json"
+  ],
+  "constraints": [
+    "keep minimal",
+    "no UI",
+    "no memory engine",
+    "no unnecessary dependencies"
+  ],
+  "verify_commands": [
+    "node cli/index.js run tasks/003-help-command.json",
+    "test -f artifacts/003-help-command-run.json"
+  ]
+}

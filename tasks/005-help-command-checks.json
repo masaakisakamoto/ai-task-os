@@ -1,0 +1,29 @@
+{
+  "id": "005-help-command-checks",
+  "goal": "Verify help command output and stability using structured checks.",
+  "scope": [
+    "validate CLI help output",
+    "ensure no runtime errors"
+  ],
+  "checks": [
+    {
+      "type": "command",
+      "run": "node cli/index.js --help",
+      "expect": "exit_code_0"
+    },
+    {
+      "type": "command",
+      "run": "node cli/index.js --help",
+      "expect": {
+        "stdout_contains": "Usage:"
+      }
+    },
+    {
+      "type": "command",
+      "run": "node cli/index.js --help",
+      "expect": {
+        "stdout_contains": "Examples:"
+      }
+    }
+  ]
+}
