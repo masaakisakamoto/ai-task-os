@@ -1,0 +1,27 @@
+{
+  "id": "012-autofix-task-bridge",
+  "goal": "Convert an improvement task draft into an executable autofix task for Claude Code.",
+  "scope": [
+    "read generated improvement task draft",
+    "normalize it into a Claude-executable task shape",
+    "preserve source_run_id and source_task_id",
+    "keep the output machine-readable"
+  ],
+  "non_scope": [
+    "no automatic code changes yet",
+    "no automatic task execution",
+    "no external API",
+    "no memory engine"
+  ],
+  "checks": [
+    {
+      "type": "command",
+      "run": "node scripts/prepare-autofix-task.js /tmp/generated-improvement-task.json /tmp/autofix-task.json",
+      "expect": "exit_code_0"
+    },
+    {
+      "type": "file_exists",
+      "path": "/tmp/autofix-task.json"
+    }
+  ]
+}
