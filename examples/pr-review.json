@@ -1,0 +1,8 @@
+{
+  "id": "example-pr-review",
+  "type": "code_review",
+  "objective": "detect critical issues",
+  "input": {
+    "diff": "if (user.name) { console.log(user.profile.bio) }"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "id": "001-cli-run",
+  "goal": "Implement CLI run command",
+  "scope": [
+    "cli/run command",
+    "load task.json",
+    "generate run.json"
+  ],
+  "success_criteria": [
+    "node cli/index.js run examples/pr-review.json works",
+    "run.json is generated"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "name": "ai-task-os",
+  "version": "0.1.0",
+  "private": true,
+  "description": "AI-native Execution OS for builders",
+  "bin": {
+    "ai-task": "./cli/index.js"
+  },
+  "scripts": {
+    "run:example": "node cli/index.js run examples/pr-review.json",
+    "task:001": "./scripts/run-task.sh tasks/001-cli-run.json",
+    "check": "node cli/index.js run examples/pr-review.json",
+    "test": "node cli/index.js run examples/pr-review.json > /dev/null"
+  },
+  "keywords": [
+    "ai",
+    "task",
+    "execution",
+    "cli",
+    "oss"
+  ],
+  "license": "MIT"
+}

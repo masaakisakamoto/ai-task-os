@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Run",
+  "type": "object",
+  "required": [
+    "run_id",
+    "task_id",
+    "timestamp",
+    "input_snapshot",
+    "output",
+    "status",
+    "trace"
+  ],
+  "properties": {
+    "run_id": {
+      "type": "string"
+    },
+    "task_id": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "string"
+    },
+    "input_snapshot": {
+      "type": "object"
+    },
+    "output": {
+      "type": "object"
+    },
+    "status": {
+      "type": "string"
+    },
+    "trace": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": true
+}
