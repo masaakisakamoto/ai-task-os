@@ -73,8 +73,8 @@ The CLI generates:
 
 Most tools stop at task management or orchestration.
 
-This project focuses on something different:
-making execution itself explicit, reproducible, and verifiable through artifacts and deterministic transitions.
+This project focuses on execution itself:
+making it explicit, reproducible, and verifiable through artifacts and deterministic transitions.
 
 ## Docs
 
