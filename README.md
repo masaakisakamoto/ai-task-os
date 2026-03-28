@@ -16,6 +16,8 @@ It is built around:
 
 Task -> Run -> Verify -> Eval -> Decision -> Retry
 
+Each step produces explicit artifacts and deterministic transitions.
+
 This repo is centered on explicit execution artifacts and deterministic loop transitions.
 
 ## Current scope (v0.1)
