@@ -10,7 +10,9 @@
     "run:example": "node cli/index.js run examples/pr-review.json",
     "task:001": "./scripts/run-task.sh tasks/001-cli-run.json",
     "check": "node cli/index.js run examples/pr-review.json",
-    "test": "node cli/index.js run examples/pr-review.json > /dev/null"
+    "test": "node cli/index.js run examples/pr-review.json > /dev/null",
+    "check:invariants": "node scripts/check-invariants.js",
+    "test:invariants": "node scripts/test-invariants.js"
   },
   "keywords": [
     "ai",

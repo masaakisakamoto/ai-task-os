@@ -1,0 +1,9 @@
+{
+  "kind": "comparison_report",
+  "before_run_path": "fixtures/invariants/comparison-report/pass/run-before.json",
+  "after_run_path": "fixtures/invariants/comparison-report/pass/run-after.json",
+  "summary": {
+    "source_verdict": "improved",
+    "notes": ["basic valid comparison"]
+  }
+}

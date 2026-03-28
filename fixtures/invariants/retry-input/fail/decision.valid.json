@@ -1,0 +1,6 @@
+{
+  "kind": "comparison_decision",
+  "decision": "retry_improvement",
+  "source_run_path": "fixtures/invariants/retry-input/fail/run-before.json",
+  "based_on_comparison_report_path": "fixtures/invariants/retry-input/fail/report.valid.json"
+}

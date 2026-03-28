@@ -1,0 +1,6 @@
+{
+  "kind": "comparison_decision",
+  "decision": "rollback_candidate",
+  "source_run_path": "fixtures/invariants/comparison-decision/fail/run-before.json",
+  "based_on_comparison_report_path": "fixtures/invariants/comparison-decision/fail/does-not-exist-report.json"
+}

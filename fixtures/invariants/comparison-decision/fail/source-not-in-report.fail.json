@@ -1,0 +1,7 @@
+{
+  "kind": "comparison_decision",
+  "decision": "retry_improvement",
+  "source_run_path": "fixtures/invariants/comparison-decision/fail/unrelated-run.json",
+  "based_on_comparison_report_path": "fixtures/invariants/comparison-decision/fail/report.valid.json",
+  "reason": "Source does not belong to the referenced comparison"
+}

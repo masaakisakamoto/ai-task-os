@@ -1,0 +1,8 @@
+{
+  "kind": "comparison_report",
+  "before_run_path": "fixtures/invariants/retry-input/fail/run-before.json",
+  "after_run_path": "fixtures/invariants/retry-input/fail/run-after.json",
+  "summary": {
+    "source_verdict": "improved"
+  }
+}

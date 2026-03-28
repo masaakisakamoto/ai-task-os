@@ -7,15 +7,27 @@ It turns tasks into **reproducible runs**.
 
 ## Core idea
 
-Task -> Run -> Eval -> Memory
+Task -> Run -> Verify -> Eval -> Decision -> Retry
+
+This repo is centered on explicit execution artifacts and deterministic loop transitions.
 
 ## Current scope (v0.1)
 
 - minimal task contract
 - minimal run artifact
 - CLI runner
+- comparison / decision / retry contracts
+- minimal invariant validation for explicit artifact lineage
 - example task
 - handoff system for long-term AI collaboration
+
+## Non-goals in v0.1
+
+- memory engine
+- UI
+- external API
+- automatic commit / merge
+- full automation
 
 ## Quickstart
 
@@ -48,11 +60,6 @@ The CLI generates:
 Most tools stop at task management.  
 This project focuses on execution infrastructure.
 
-## Non-goals
-
-- generic productivity app
-- UI-first product
-- memory engine in v0.1
 
 ## Docs
 
@@ -61,3 +68,29 @@ This project focuses on execution infrastructure.
 - docs/decision-log.md
 - docs/next-chat-prompt.md
 - docs/drift-checklist.md
+
+## Invariant validation
+
+This repo includes a minimal invariant checker for explicit artifact lineage across:
+
+- `comparison_report`
+- `comparison_decision`
+- `retry_input`
+
+These checks are intentionally minimal for v0.1.
+
+### Run the invariant fixture suite
+
+    npm run test:invariants
+
+### Validate a single artifact directly
+
+    npm run check:invariants -- fixtures/invariants/comparison-report/pass/valid.pass.json
+
+The invariant checker enforces minimal cross-file rules such as:
+
+- `before_run_path !== after_run_path`
+- `source_run_path` must match the referenced comparison inputs
+- `retry_input.source_run_path` must match the referenced decision
+
+This keeps the loop explicit and deterministic without introducing higher-level lineage abstractions yet.

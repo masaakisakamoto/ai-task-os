@@ -1,0 +1,8 @@
+{
+  "kind": "comparison_report",
+  "before_run_path": "fixtures/invariants/comparison-report/fail/run-same.json",
+  "after_run_path": "fixtures/invariants/comparison-report/fail/run-same.json",
+  "summary": {
+    "source_verdict": "not_improved"
+  }
+}

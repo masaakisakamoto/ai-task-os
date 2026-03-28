@@ -1,0 +1,7 @@
+{
+  "kind": "comparison_decision",
+  "decision": "retry_improvement",
+  "source_run_path": "fixtures/invariants/comparison-decision/pass/run-before.json",
+  "based_on_comparison_report_path": "fixtures/invariants/comparison-decision/pass/report.valid.json",
+  "reason": "Improvement is incomplete but promising"
+}

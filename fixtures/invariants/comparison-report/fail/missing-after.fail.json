@@ -1,0 +1,8 @@
+{
+  "kind": "comparison_report",
+  "before_run_path": "fixtures/invariants/comparison-report/fail/run-before.json",
+  "after_run_path": "fixtures/invariants/comparison-report/fail/does-not-exist-after.json",
+  "summary": {
+    "source_verdict": "regressed"
+  }
+}

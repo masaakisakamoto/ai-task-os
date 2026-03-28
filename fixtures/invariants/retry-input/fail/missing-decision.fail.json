@@ -1,0 +1,5 @@
+{
+  "kind": "retry_input",
+  "source_run_path": "fixtures/invariants/retry-input/fail/run-before.json",
+  "comparison_decision_path": "fixtures/invariants/retry-input/fail/does-not-exist-decision.json"
+}
