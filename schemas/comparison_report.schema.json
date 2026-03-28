@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "required": ["kind", "before_run_path", "after_run_path"],
+  "properties": {
+    "kind": {
+      "const": "comparison_report"
+    },
+    "before_run_path": {
+      "type": "string"
+    },
+    "after_run_path": {
+      "type": "string"
+    },
+    "summary": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": true
+}

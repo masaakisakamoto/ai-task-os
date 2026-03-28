@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "required": ["kind", "decision", "source_run_path", "based_on_comparison_report_path"],
+  "properties": {
+    "kind": {
+      "const": "comparison_decision"
+    },
+    "decision": {
+      "type": "string"
+    },
+    "source_run_path": {
+      "type": "string"
+    },
+    "based_on_comparison_report_path": {
+      "type": "string"
+    },
+    "reason": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}

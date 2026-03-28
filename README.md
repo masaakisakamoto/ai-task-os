@@ -3,7 +3,14 @@
 AI-native Execution OS for builders.
 
 This project is **not** a task manager.  
-It turns tasks into **reproducible runs**.
+It is a deterministic execution loop for turning tasks into **reproducible runs, explicit decisions, and retryable improvements**.
+
+It is built around:
+
+- explicit execution artifacts
+- deterministic loop transitions
+- path-based artifact lineage
+- minimal invariant validation
 
 ## Core idea
 
@@ -31,12 +38,17 @@ This repo is centered on explicit execution artifacts and deterministic loop tra
 
 ## Quickstart
 
-node cli/index.js run examples/pr-review.json
-cat artifacts/run.json
+Run an example task:
 
-Or:
+    npm run run:example
 
-npm run run:example
+Inspect the resulting execution artifact:
+
+    cat artifacts/run.json
+
+Then validate invariant consistency:
+
+    npm run test:invariants
 
 ## Example task shape
 

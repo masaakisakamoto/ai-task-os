@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "required": ["kind", "source_run_path", "comparison_decision_path"],
+  "properties": {
+    "kind": {
+      "const": "retry_input"
+    },
+    "source_run_path": {
+      "type": "string"
+    },
+    "comparison_decision_path": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}
