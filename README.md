@@ -71,9 +71,10 @@ The CLI generates:
 
 ## Why this exists
 
-Most tools stop at task management.  
-This project focuses on execution infrastructure.
+Most tools stop at task management or orchestration.
 
+This project focuses on something different:
+making execution itself explicit, reproducible, and verifiable through artifacts and deterministic transitions.
 
 ## Docs
 
